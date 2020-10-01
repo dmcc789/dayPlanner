@@ -26,13 +26,121 @@
     <header class="jumbotron">
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
-      <p id="currentDay" class="lead"></p>
+      <p id="currentDay" class="lead time-block"></p>
     </header>
     <div class="container">
-      <!-- Timeblocks go here -->
+      <div class="row">
+        <div class="col-sm-1 hour">9AM</div>
+        <textarea id="9el" class="col-sm-10 description" data-ref="9"></textarea>
+        <button class="col-sm-1 saveBtn">SAVE</button>
+      </div>
+      <div class="row">
+        <div class="col-sm-1 hour">10AM</div>
+        <textarea id="10el" class="col-sm-10 description" data-ref="10"></textarea>
+        <button class="col-sm-1 saveBtn">SAVE</button>
+      </div>
+      <div class="row">
+        <div class="col-sm-1 hour">11AM</div>
+        <textarea id="11el" class="col-sm-10 description" data-ref="11"></textarea>
+        <button class="col-sm-1 saveBtn">SAVE</button>
+      </div>
+      <div class="row">
+        <div class="col-sm-1 hour">12PM</div>
+        <textarea id="12el" class="col-sm-10 description" data-ref="12"></textarea>
+        <button class="col-sm-1 saveBtn">SAVE</button>
+      </div>
+      <div class="row">
+        <div class="col-sm-1 hour">1PM</div>
+        <textarea id="1el" class="col-sm-10 description" data-ref="13"></textarea>
+        <button class="col-sm-1 saveBtn">SAVE</button>
+      </div>
+      <div class="row">
+        <div class="col-sm-1 hour">2PM</div>
+        <textarea id="2el" class="col-sm-10 description" data-ref="14"></textarea>
+        <button class="col-sm-1 saveBtn">SAVE</button>
+      </div>
+      <div class="row">
+        <div class="col-sm-1 hour">3PM</div>
+        <textarea id="3el" class="col-sm-10 description" data-ref="15"></textarea>
+        <button class="col-sm-1 saveBtn">SAVE</button>
+      </div>
+      <div class="row">
+        <div class="col-sm-1 hour">4PM</div>
+        <textarea id="4el" class="col-sm-10 description" data-ref="16"></textarea>
+        <button class="col-sm-1 saveBtn">SAVE</button>
+      </div>
+      <div class="row">
+        <div class="col-sm-1 hour">5PM</div>
+        <textarea id="5el" class="col-sm-10 description" data-ref="17"></textarea>
+        <button class="col-sm-1 saveBtn">SAVE</button>
+      </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    
+    <script>
+     $(document).ready(function(){
+      
+      var today = moment().format("dddd, MMMM Do, YYYY");
+      var currentHr = moment().hour();
+   
+      var block1El = $("#9el");
+      var block2El = $("#10el"); 
+      var block3El = $("#11el");
+      var block4El = $("#12el");
+      var block5El = $("#1el");  
+      var block6El = $("#2el");
+      var block7El = $("#3el");
+      var block8El = $("#4el");
+      var block9El = $("#5el");
+      
+      var elArray = [block1El, block2El, block3El, block4El, block5El, block6El, block7El, block8El, block9El];
+
+      var meetingsInput = 
+
+      //setting the current day text with moment js
+      $("#currentDay").text(today);
+
+      //defining the function for setting classes
+      function setClasses() {
+        
+        for (let i = 0; i < elArray.length; i++) {
+          const hourEl = elArray[i];
+          const hour = elArray[i].data('ref');
+
+          if (currentHr === hour) {
+            hourEl.attr("class", "present");
+          }
+          else if (currentHr > hour) {
+            hourEl.attr("class", "past");
+          }
+          else if (currentHr < hour) {
+            hourEl.attr("class", "future");
+          }; 
+        }
+      };
+
+      // //defining a function to render saved schedule 
+      // function renderSchedule() {
+
+      // }
+
+      // //defining function to store schedule
+      // function storeSchedule() {
+      //   var storedMeetings = JSON.parse(localStorage.getItem("meetings")); 
+      // }
+
+      // executing set classes function
+      setClasses();
+      
+      // setting on click function
+      $(".saveBtn").on("click", function() {
+        console.log(this);
+        
+      })
+
+     })      
+    </script>
   </body>
 </html>
