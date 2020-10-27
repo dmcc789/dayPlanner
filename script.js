@@ -1,6 +1,10 @@
 $(document).ready(function(){
  
  var today = moment().format("dddd, MMMM Do, YYYY");
+ 
+ //setting the current day text with moment js
+ $("#currentDay").text(today);
+
  var currentHr = moment().hour();
 
  var block1El = $("#9el");
@@ -15,10 +19,7 @@ $(document).ready(function(){
  
  var elArray = [block1El, block2El, block3El, block4El, block5El, block6El, block7El, block8El, block9El];
 
- var meetingsInput = 
-
- //setting the current day text with moment js
- $("#currentDay").text(today);
+//  var meetingsInput = 
 
  //defining the function for setting classes
  function setClasses() {
@@ -39,15 +40,15 @@ $(document).ready(function(){
    }
  };
 
- // //defining a function to render saved schedule 
- // function renderSchedule() {
+ //defining a function to render saved schedule 
+ function renderSchedule() {
 
- // }
+ }
 
- // //defining function to store schedule
- // function storeSchedule() {
- //   var storedMeetings = JSON.parse(localStorage.getItem("meetings")); 
- // }
+ //defining function to store schedule
+ function storeSchedule() {
+   var storedMeetings = JSON.parse(localStorage.getItem("meetings")); 
+ }
 
  // executing set classes function
  setClasses();
