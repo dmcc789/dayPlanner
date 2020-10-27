@@ -14,7 +14,7 @@ Work Day Scheduler is a calendar application that allows the user to save events
 
 ## Screenshot 
 
-![Application Screen Shot](Assets\DaySchedulerScreenshot1.png)
+![Application Screen Shot](Assets\screenshot.png)
 
 ## License
 Copyright 2020 Deirdre Cruice Cabanel
